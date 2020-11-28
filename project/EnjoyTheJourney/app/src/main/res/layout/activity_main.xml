@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/liner_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/tv_main_index"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:textSize="17sp"
+            android:textColor="@color/textClick"
+            android:padding="10dp"
+            android:gravity="center"
+            android:onClick="textClick"/>
+        <TextView
+            android:id="@+id/tv_main_found"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="发现"
+            android:textSize="17sp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:onClick="textClick"/>
+        <TextView
+            android:id="@+id/tv_main_mine"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="我的"
+            android:textSize="17sp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:onClick="textClick"/>
+    </LinearLayout>
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/multiple_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginStart="330dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="50dp"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        skin:enable="true">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_grid"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            fab:fab_colorPressed="#ffffff"
+            fab:fab_icon="@mipmap/ic_shoot"
+            skin:enable="true" />
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    <FrameLayout
+        android:id="@+id/fram_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/liner_main"/>
+
+</RelativeLayout>

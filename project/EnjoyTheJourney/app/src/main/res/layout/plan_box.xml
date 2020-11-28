@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+    <!--背景颜色透明-->
+
+    <LinearLayout
+        android:background="@drawable/round_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="创建计划名称"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                android:layout_centerVertical="true"
+                android:textColor="#000000" />
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_toRightOf="@id/tv_check"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="50dp"
+                android:src="@mipmap/ic_close"/>
+
+        </RelativeLayout>
+        <EditText
+            android:id="@+id/ed_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round_black_box"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:focusableInTouchMode="true"
+            android:textColorHint="#000000"/>
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_black"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:text="commit"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
