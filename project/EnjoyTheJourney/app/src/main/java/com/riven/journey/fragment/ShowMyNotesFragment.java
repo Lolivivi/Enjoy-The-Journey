@@ -1,18 +1,22 @@
-package com.riven.journey;
+package com.riven.journey.fragment;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.riven.journey.R;
 import com.riven.journey.adapter.GridAdapter;
 import com.riven.journey.bean.MyWorks;
 import com.riven.journey.util.ConfigUtil;
@@ -22,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -34,13 +39,23 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
+ * 展示我的作品
  * @author 田春雨
  */
-public class ExamineDetailActivity extends AppCompatActivity {
+
+public class ShowMyNotesFragment extends Fragment {
+
+    public static ShowMyNotesFragment newInstance(String param1) {
+        ShowMyNotesFragment fragment = new ShowMyNotesFragment();
+        Bundle args = new Bundle();
+        args.putString("phone", param1);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     private RecyclerView rv;
     private List<MyWorks> list = new ArrayList<>();
     private String phone;
-    private String name;//收藏夹名称
     private GridAdapter adapter;
     private Handler handler = new Handler() {
         @Override
@@ -48,7 +63,7 @@ public class ExamineDetailActivity extends AppCompatActivity {
             switch (msg.what) {
                 case 1:
                     Log.e("lww", msg.obj.toString());
-                    rv.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+                    rv.setLayoutManager(new GridLayoutManager(getContext(), 3));
                     rv.setAdapter(adapter);
                     break;
                 case 2:
@@ -58,32 +73,33 @@ public class ExamineDetailActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_notes_layout);
-        //获取手机号
-        Intent request=getIntent();
-        phone=request.getStringExtra("phone");
-        name=request.getStringExtra("name");
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.my_notes_layout, container, false);
+        //得到手机号
+        phone = getArguments().getString("phone");
+        Log.e("phone", phone);
 
         //获取控件
-        rv = findViewById(R.id.rv);
-        adapter = new GridAdapter(getApplicationContext(), list);
+        rv = view.findViewById(R.id.rv);
+        adapter = new GridAdapter(getContext(), list);
 
         //准备数据
         initData();
-
+        return view;
     }
+
 
     private void initData() {
         //显示数据（封面和标题）
-        showExaminePageData();
+        showFirstPageData();
     }
 
-    private void showExaminePageData() {
-        final String s = ConfigUtil.BASE_URL + "collection/showOneDirectory";
-        String key = "?tel=" + phone+"&name="+name;
+    private void showFirstPageData() {
+        final String s = ConfigUtil.BASE_URL + "user/myWorks";
+        String key = "?tel=" + phone;
         //创建请求对象
         final Request request = new Request.Builder()
                 .url(s + key)
@@ -110,6 +126,9 @@ public class ExamineDetailActivity extends AppCompatActivity {
                 Bitmap bitmap = null;
                 String title = null;
                 String id = null;
+                if (null != list) {
+                    list.clear();
+                }
                 try {
                     JSONObject object = new JSONObject(result);
                     JSONArray array = object.getJSONArray("array");
@@ -141,5 +160,4 @@ public class ExamineDetailActivity extends AppCompatActivity {
             }
         });
     }
-
 }

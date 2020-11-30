@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -297,8 +296,8 @@ public class MyPageFragment extends Fragment {
     private void showMyWorks() {
         FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(R.id.content, FirstPageFragment.newInstance(phone));
-        transaction.replace(R.id.content, FirstPageFragment.newInstance(phone));
+        transaction.add(R.id.content, ShowMyNotesFragment.newInstance(phone));
+        transaction.replace(R.id.content, ShowMyNotesFragment.newInstance(phone));
         tvLike1.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
         ivLike1.setImageDrawable(getResources().getDrawable(R.mipmap.show));
         transaction.commit();

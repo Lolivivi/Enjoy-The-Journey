@@ -23,6 +23,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.riven.journey.DetailActivity;
 import com.riven.journey.MainActivity;
 import com.riven.journey.R;
 import com.riven.journey.bean.RecommendUser;
@@ -118,13 +119,12 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.MyVi
                 if(users.get(position).getLikeCount().equals("0")){
                     holder.likeCount.setText("1");
                     users.get(position).setLikeCount("1");
-                    onClickLike(position);
                 }else{
                     int newCount = Integer.parseInt(users.get(position).getLikeCount())+1;
                     users.get(position).setLikeCount(newCount+"");
                     holder.likeCount.setText(newCount+"");
-                    onClickLike(position);
                 }
+                onClickLike(position);
             }
 
             @Override
@@ -144,8 +144,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.MyVi
         holder.ivMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO:修改类名
-                Intent intent = new Intent(mContext, MainActivity.class);
+                Intent intent = new Intent(mContext, DetailActivity.class);
                 intent.putExtra("noteId", users.get(position).getArtId());
                 mContext.startActivity(intent);
             }

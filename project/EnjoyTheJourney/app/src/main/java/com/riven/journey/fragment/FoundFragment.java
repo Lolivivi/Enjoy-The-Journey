@@ -1,5 +1,6 @@
 package com.riven.journey.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +14,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+
 import com.riven.journey.R;
 import com.riven.journey.adapter.MyFragmentPageAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 发现页面
- * @author 张硕
- */
 public class FoundFragment extends Fragment {
     //ViewPager+Fragment滑动布局
     private List<Fragment> list;
@@ -41,10 +39,15 @@ public class FoundFragment extends Fragment {
     private ConcernFragment concernFragment;
     private OnlineFragment onlineFragment;
     private RecommendFragment recommendFragment;
+    private Context mContext;
+    //滑动监听是第几次滑动
+    private int i=0;
+    private int j=0;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_found,container,false);
+        mContext = view.getContext();
         //注册控件
         findView();
         cityFragment = new CityFragment();
@@ -55,8 +58,9 @@ public class FoundFragment extends Fragment {
         //把fragment加入集合中
         list.add(concernFragment);
         list.add(recommendFragment);
-        list.add(cityFragment);
         list.add(onlineFragment);
+        list.add(cityFragment);
+
         setListeners();
         //初始化页面内容
         initViewPager();
@@ -67,8 +71,8 @@ public class FoundFragment extends Fragment {
     private void setListeners() {
         tvConcern.setOnClickListener(new MyOnClickListener(0));
         tvRecommend.setOnClickListener(new MyOnClickListener(1));
-        tvCity.setOnClickListener(new MyOnClickListener(2));
-        tvOnline.setOnClickListener(new MyOnClickListener(3));
+        tvCity.setOnClickListener(new MyOnClickListener(3));
+        tvOnline.setOnClickListener(new MyOnClickListener(2));
     }
     //标题栏监听
     public class MyOnClickListener implements View.OnClickListener{
@@ -86,12 +90,12 @@ public class FoundFragment extends Fragment {
     private void initViewPager() {
         mViewPager.setAdapter(new MyFragmentPageAdapter(fragmentManager,list));
         //让ViewPager缓存2个页面
-        mViewPager.setOffscreenPageLimit(2);
+        mViewPager.setOffscreenPageLimit(3);
 
         //设置默认打开第一页
         mViewPager.setCurrentItem(0);
         //将顶部文字恢复默认值
-        initTextStyle();
+        initTextStlye();
         tvConcern.setTextColor(getResources().getColor(R.color.white));
         tvConcern.setBackground(getResources().getDrawable(R.drawable.title_background_style));
         mViewPager.setOnPageChangeListener(new MyPagerChangeListener());
@@ -112,14 +116,19 @@ public class FoundFragment extends Fragment {
                     changeTitle(0);
                     break;
                 case 1:
+                    i+=1;
+//                    recommendFragment.setTouch(true,i);
                     changeTitle(1);
                     break;
                 case 2:
-                    changeTitle(2);
-                    break;
-                case 3:
                     changeTitle(3);
                     break;
+                case 3:
+                    j+=1;
+//                    cityFragment.setTouch(true,j);
+                    changeTitle(2);
+                    break;
+
             }
 
         }
@@ -142,28 +151,28 @@ public class FoundFragment extends Fragment {
     private void changeTitle(int position){
         switch (position){
             case 0:
-                initTextStyle();
+                initTextStlye();
                 tvConcern.setTextColor(getResources().getColor(R.color.white));
                 tvConcern.setBackground(getResources().getDrawable(R.drawable.title_background_style));
                 break;
             case 1:
-                initTextStyle();
+                initTextStlye();
                 tvRecommend.setTextColor(getResources().getColor(R.color.white));
                 tvRecommend.setBackground(getResources().getDrawable(R.drawable.title_background_style));
                 break;
             case 2:
-                initTextStyle();
+                initTextStlye();
                 tvCity.setTextColor(getResources().getColor(R.color.white));
                 tvCity.setBackground(getResources().getDrawable(R.drawable.title_background_style));
                 break;
             case 3:
-                initTextStyle();
+                initTextStlye();
                 tvOnline.setTextColor(getResources().getColor(R.color.white));
                 tvOnline.setBackground(getResources().getDrawable(R.drawable.title_background_style));
                 break;
         }
     }
-    public void initTextStyle(){
+    public void initTextStlye(){
         tvOnline.setTextColor(getResources().getColor(R.color.gray));
         tvOnline.setBackground(getResources().getDrawable(R.drawable.title_background_null));
         tvRecommend.setTextColor(getResources().getColor(R.color.gray));

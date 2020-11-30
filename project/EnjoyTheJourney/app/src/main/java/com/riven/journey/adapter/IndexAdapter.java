@@ -25,6 +25,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
+import com.riven.journey.DetailActivity;
 import com.riven.journey.MainActivity;
 import com.riven.journey.R;
 import com.riven.journey.bean.RecommendUser;
@@ -140,8 +141,7 @@ public class IndexAdapter extends RecyclerView.Adapter<IndexAdapter.MyViewHolder
         holder.ivMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO:修改类名
-                Intent intent = new Intent(mContext, MainActivity.class);
+                Intent intent = new Intent(mContext, DetailActivity.class);
                 intent.putExtra("noteId", users.get(position).getArtId());
                 mContext.startActivity(intent);
             }

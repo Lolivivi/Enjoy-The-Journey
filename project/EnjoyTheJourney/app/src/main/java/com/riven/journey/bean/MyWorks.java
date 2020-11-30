@@ -8,10 +8,12 @@ import android.graphics.Bitmap;
 public class MyWorks {
     private Bitmap photo;
     private String title;
+    private String id;
 
-    public MyWorks(Bitmap photo, String title) {
+    public MyWorks(Bitmap photo, String title, String id) {
         this.photo = photo;
         this.title = title;
+        this.id = id;
     }
 
     public Bitmap getPhoto() {
@@ -30,11 +32,20 @@ public class MyWorks {
         this.title = title;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "MyWorks{" +
                 "photo=" + photo +
                 ", title='" + title + '\'' +
+                ", id=" + id +
                 '}';
     }
 }

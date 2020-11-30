@@ -41,6 +41,8 @@
         <activity android:name=".TemplateActivity"  android:configChanges="orientation|screenSize"/>
         <activity android:name=".ExamineDetailActivity"/>
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".DetailActivity"/>
+        <activity android:name=".NotesActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

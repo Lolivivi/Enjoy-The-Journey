@@ -20,8 +20,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.riven.journey.R;
 import com.riven.journey.adapter.IndexAdapter;
-import com.riven.journey.adapter.recyclerAdapter.RecommendAdapter;
-import com.riven.journey.bean.Note;
 import com.riven.journey.bean.RecommendUser;
 import com.riven.journey.util.ConfigUtil;
 

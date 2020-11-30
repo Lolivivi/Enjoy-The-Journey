@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +28,7 @@ public class SecondPageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.first_page, container, false);
+        View view = inflater.inflate(R.layout.my_notes_layout, container, false);
         String phone=getArguments().getString("phone");
 //        TextView text=view.findViewById(R.id.tv_text);
 //        text.setText("这是第二个页面");

@@ -25,22 +25,21 @@
             android:layout_height="wrap_content"
             android:text="推荐"
             android:textColor="@color/gray"
-            style="@style/up_text"
-            />
-        <TextView
-            android:id="@+id/tv_found_city"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="同城"
-            android:textColor="@color/gray"
-            style="@style/up_text"/>
+            style="@style/up_text" />
         <TextView
             android:id="@+id/tv_found_online"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="线上"
+            android:textColor="@color/gray"
+            style="@style/up_text"/>
+        <TextView
+            android:id="@+id/tv_found_city"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="同城"
             android:textColor="@color/gray"
             style="@style/up_text"/>
     </LinearLayout>

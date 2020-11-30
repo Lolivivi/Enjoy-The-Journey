@@ -13,4 +13,7 @@
     <color name="black_semi_transparent">#ffffff</color>
     <color name="textClick">#A20303</color>
     <color name="gray">#5B5858</color>
+    <color name="myGray">#eee</color>
+    <color name="myDarkGray">#888</color>
+    <color name="myRed">#f00</color>
 </resources>
