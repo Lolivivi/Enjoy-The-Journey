@@ -1,6 +1,7 @@
 package com.riven.journey;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -42,9 +43,7 @@ public class BookMarkActivity extends AppCompatActivity {
                     if (msg.obj.equals("true")) {
                         Log.e("lww", msg.obj.toString());
                         Toast.makeText(getApplicationContext(), "创建成功！", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MyPageFragment.class);
-                        intent.putExtra("phone", phone);
-                        startActivity(intent);
+                        finish();
                     }
                     break;
                 case 2:
@@ -57,8 +56,8 @@ public class BookMarkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_mark);
-        Intent request = getIntent();
-        phone = request.getStringExtra("phone");
+        SharedPreferences sp = getSharedPreferences("setting", MODE_PRIVATE);
+        phone = sp.getString("tel", "1");
 
         //获取控件
         findViews();

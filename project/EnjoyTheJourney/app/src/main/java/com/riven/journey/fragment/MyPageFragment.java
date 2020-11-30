@@ -1,6 +1,8 @@
 package com.riven.journey.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -125,8 +127,9 @@ public class MyPageFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.my_page, container, false);
-        phone = getArguments().getString("phone");
-        Log.e("lww", phone);
+
+        SharedPreferences sp = getContext().getSharedPreferences("setting", Context.MODE_PRIVATE);
+        phone = sp.getString("tel", "1");
         //获取控件
         myUserPhoto = view.findViewById(R.id.my_user_photo);
         myUserName = view.findViewById(R.id.my_user_name);
@@ -157,7 +160,10 @@ public class MyPageFragment extends Fragment {
         //返回用户信息
         showUserInfo();
 
-
+//        //控件的动画效果
+//        TranslateAnimation animation = new TranslateAnimation(0, 550, 0, 550);
+//        animation.setFillAfter(true);
+//        rl.startAnimation(animation);
         return view;
     }
 
@@ -238,7 +244,6 @@ public class MyPageFragment extends Fragment {
                 case R.id.my_user_photo:
                     //点击头像跳转到修改用户信息页面
                     Intent intent = new Intent(getContext(), ModifyUserInfoActivity.class);
-                    intent.putExtra("phone", getArguments().getString("phone"));
                     intent.putExtra("imgUrl", imgUrl);
                     Log.e("url", imgUrl);
                     intent.putExtra("name", name);
@@ -250,7 +255,6 @@ public class MyPageFragment extends Fragment {
                 case R.id.iv_set_up:
                     //设置中心跳转
                     Intent intent1 = new Intent(getContext(), SetUpActivity.class);
-                    intent1.putExtra("phone", phone);
                     startActivity(intent1);
                     break;
                 case R.id.ll_home:
@@ -260,22 +264,20 @@ public class MyPageFragment extends Fragment {
                 case R.id.ll_add:
                     //添加收藏夹按钮
                     Intent intent2 = new Intent(getContext(), BookMarkActivity.class);
-                    intent2.putExtra("phone", phone);
                     startActivity(intent2);
                     break;
                 case R.id.iv_collect:
                 case R.id.tv_collect:
                     //跳转到收藏页面
                     Intent i = new Intent(getContext(), ExamineActivity.class);
-                    i.putExtra("phone", phone);
                     startActivity(i);
                     break;
-                case R.id.rl:
-                    //控件的动画效果
-                    TranslateAnimation animation = new TranslateAnimation(0, 550, 0, 550);
-                    animation.setFillAfter(true);
-                    rl.startAnimation(animation);
-                    break;
+//                case R.id.rl:
+//                    //控件的动画效果
+//                    TranslateAnimation animation = new TranslateAnimation(0, 550, 0, 550);
+//                    animation.setFillAfter(true);
+//                    rl.startAnimation(animation);
+//                    break;
             }
         }
     }

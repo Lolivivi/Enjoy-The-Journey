@@ -1,6 +1,5 @@
 package com.riven.journey;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -34,8 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
                 case 1:
                     if(msg.obj.equals("true")){
                         Toast.makeText(getApplicationContext(),"注册成功！",Toast.LENGTH_LONG).show();
-                        Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
-                        startActivity(intent);
+                        finish();
                     }else {
                         Toast.makeText(getApplicationContext(),"手机号已被注册过，请登录！",Toast.LENGTH_LONG).show();
                     }
@@ -62,38 +60,43 @@ public class RegisterActivity extends AppCompatActivity {
                 //1. OkClient对象
                 //2. 创建Request请求对象（提前准备好Form表单数据封装）
                 //创建FormBody对象
-                FormBody formBody = new FormBody.Builder()
-                        .add("tel", edPhone.getText().toString())
-                        .add("pwd", edPwd.getText().toString())
-                        .build();
-                //创建请求对象
-                Request request = new Request.Builder()
-                        .url(ConfigUtil.BASE_URL +"user/registerUser")
-                        .post(formBody)
-                        .build();
-                //3. 创建CALL对象
-                OkHttpClient okHttpClient = new OkHttpClient();
-                Call call = okHttpClient.newCall(request);
-                //4. 提交请求并获取响应
-                call.enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        String result = "网络连接错误";
-                        Message msg = handler.obtainMessage();
-                        msg.what = 2;
-                        msg.obj = result;
-                        handler.sendMessage(msg);
-                    }
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        //获取响应的字符串信息
-                        String result = response.body().string();
-                        Message msg = handler.obtainMessage();
-                        msg.what = 1;
-                        msg.obj = result;
-                        handler.sendMessage(msg);
-                    }
-                });
+                if (edPhone.length() == 0 || edPwd.length() == 0) {
+                    Toast.makeText(getApplicationContext(), "手机号或密码不能为空！", Toast.LENGTH_LONG).show();
+                } else {
+                    FormBody formBody = new FormBody.Builder()
+                            .add("tel", edPhone.getText().toString())
+                            .add("pwd", edPwd.getText().toString())
+                            .build();
+                    //创建请求对象
+                    Request request = new Request.Builder()
+                            .url(ConfigUtil.BASE_URL + "user/registerUser")
+                            .post(formBody)
+                            .build();
+                    //3. 创建CALL对象
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    Call call = okHttpClient.newCall(request);
+                    //4. 提交请求并获取响应
+                    call.enqueue(new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+                            String result = "网络连接错误";
+                            Message msg = handler.obtainMessage();
+                            msg.what = 2;
+                            msg.obj = result;
+                            handler.sendMessage(msg);
+                        }
+
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+                            //获取响应的字符串信息
+                            String result = response.body().string();
+                            Message msg = handler.obtainMessage();
+                            msg.what = 1;
+                            msg.obj = result;
+                            handler.sendMessage(msg);
+                        }
+                    });
+                }
             }
         });
 

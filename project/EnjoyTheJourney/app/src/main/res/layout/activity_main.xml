@@ -45,6 +45,12 @@
             android:gravity="center"
             android:onClick="textClick"/>
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fram_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/liner_main"/>
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/multiple_actions"
         android:layout_width="wrap_content"
@@ -67,10 +73,4 @@
             fab:fab_icon="@mipmap/ic_shoot"
             skin:enable="true" />
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
-    <FrameLayout
-        android:id="@+id/fram_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/liner_main"/>
-
 </RelativeLayout>

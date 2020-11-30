@@ -155,9 +155,7 @@ public class TemplateActivity extends AppCompatActivity {
                 Log.e("lww", path1 + "");
                 upLoadText();
                 Toast.makeText(getApplicationContext(), "发布成功！", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), MyPageFragment.class);
-                intent.putExtra("phone", phone);
-                startActivity(intent);
+                finish();
             }
         });
 

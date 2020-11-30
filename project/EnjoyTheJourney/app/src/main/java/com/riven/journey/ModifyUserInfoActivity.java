@@ -3,6 +3,7 @@ package com.riven.journey;
 import android.Manifest;
 import android.content.ContentUris;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -98,8 +99,9 @@ public class ModifyUserInfoActivity extends AppCompatActivity {
         //设置监听器
         setListener();
         //获取得到的用户手机号
+        SharedPreferences sp = getSharedPreferences("setting", MODE_PRIVATE);
+        phone = sp.getString("tel", "1");
         Intent request = getIntent();
-        phone = request.getStringExtra("phone");
         String name = request.getStringExtra("name");
         String sign = request.getStringExtra("sign");
         String imgUrl = request.getStringExtra("imgUrl");
@@ -179,9 +181,7 @@ public class ModifyUserInfoActivity extends AppCompatActivity {
                     //将数据传给服务器
                     upLoadData();
                     //跳转页面
-                    Intent intent = new Intent(getApplicationContext(), MyPageFragment.class);
-                    intent.putExtra("phone", phone);
-                    startActivity(intent);
+                    finish();
                     break;
             }
         }

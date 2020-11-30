@@ -129,6 +129,9 @@ public class FirstPageFragment extends Fragment {
                 Log.e("result", result);
                 Bitmap bitmap = null;
                 String title = null;
+                if (null != list) {
+                    list.clear();
+                }
                 try {
                     JSONObject object = new JSONObject(result);
                     JSONArray array = object.getJSONArray("array");
@@ -141,7 +144,9 @@ public class FirstPageFragment extends Fragment {
                         URL url = new URL(imgUrl);
                         InputStream in1 = url.openStream();
                         //将输入流解析成Bitmap对象
-                        bitmap = BitmapFactory.decodeStream(in1);
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inSampleSize = 2;
+                        bitmap = BitmapFactory.decodeStream(in1,null,options);
                         in1.close();
                         MyWorks works = new MyWorks(bitmap, title);
                         list.add(works);

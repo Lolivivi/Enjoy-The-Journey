@@ -1,6 +1,7 @@
 package com.riven.journey;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -53,16 +54,16 @@ public class ExamineActivity extends AppCompatActivity {
     };
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.list_view);
-        Intent request = getIntent();
-        phone = request.getStringExtra("phone");
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.list_view);
+        SharedPreferences sp = getSharedPreferences("setting", MODE_PRIVATE);
+        phone = sp.getString("tel", "1");
         tvExamine = findViewById(R.id.tv_examine);
         ivExamine = findViewById(R.id.iv_examine);
         //准备数据
         initData();
-        adapter = new ExamineAdapter(getApplicationContext(), em, R.layout.history_download,phone);
+        adapter = new ExamineAdapter(getApplicationContext(), em, R.layout.history_download, phone);
         //获取控件
         listView = findViewById(R.id.lv_list);
     }
