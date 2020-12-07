@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:id="@+id/titletxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/title"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="消息通知"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/titletxt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.roughike.bottombar.BottomBar
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:bb_inActiveTabColor="#808080"
+            app:bb_inActiveTabAlpha="0.4"
+            app:bb_activeTabColor="#000000"
+            app:bb_tabXmlResource="@xml/bottombar_tabs" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:id="@+id/text"/>
+        <FrameLayout
+            android:layout_below="@+id/text"
+            android:id="@+id/contentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+</RelativeLayout>

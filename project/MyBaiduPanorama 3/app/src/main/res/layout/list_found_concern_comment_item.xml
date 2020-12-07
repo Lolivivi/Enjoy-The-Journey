@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="25dp"
+    android:background="#F1EEEE"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp">
+    <TextView
+        android:id="@+id/tv_found_concern_comments_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户名"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="："
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/tv_found_concern_comments_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="评论内容"
+        android:textSize="12sp"
+        android:textColor="#515151"/>
+</LinearLayout>

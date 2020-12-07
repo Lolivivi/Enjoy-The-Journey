@@ -1,0 +1,17 @@
+<tabs>
+    <tab
+        id="@+id/tab_favorites"
+        icon="@drawable/message11"
+        title="Favorites"
+        barColorWhenSelected="#FFFFFF" />
+    <tab
+        id="@+id/tab_nearby"
+        icon="@drawable/fan"
+        title="Nearby"
+        barColorWhenSelected="#FFFFFF" />
+    <tab
+        id="@+id/tab_friends"
+        icon="@drawable/ic_friends"
+        title="Friends"
+        barColorWhenSelected="#FFFFFF" />
+</tabs>

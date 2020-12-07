@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/liner_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentTop="true">
+        <TextView
+            android:id="@+id/tv_found_concern"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="关注"
+            android:textColor="@color/simple_pink"
+            android:background="@drawable/title_background_style"
+            style="@style/up_text"/>
+        <TextView
+            android:id="@+id/tv_found_recommend"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="推荐"
+            android:textColor="@color/main"
+            style="@style/up_text"
+            />
+        <TextView
+            android:id="@+id/tv_found_online"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="线上"
+            android:textColor="@color/main"
+            style="@style/up_text"/>
+        <TextView
+            android:id="@+id/tv_found_city"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="同城"
+            android:textColor="@color/main"
+            style="@style/up_text"/>
+    </LinearLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/my_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/liner_title"/>
+
+</RelativeLayout>

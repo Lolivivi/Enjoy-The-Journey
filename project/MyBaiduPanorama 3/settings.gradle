@@ -1,0 +1,3 @@
+include ':easeui'
+include ':app'
+rootProject.name = "MyBaiduMap"

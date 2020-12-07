@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation_bar"></FrameLayout>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/multiple_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginStart="330dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="370dp"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        skin:enable="true">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_grid"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            fab:fab_colorPressed="#ffffff"
+            fab:fab_icon="@mipmap/ic_shoot"
+            skin:enable="true" />
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

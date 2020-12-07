@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+
+android {
+     signingConfigs {
+          BaibuKeyConfig {
+               storeFile file('E:\\keystore\\keystore.jks')
+               storePassword 'yangyun520'
+               keyAlias 'BaiduKey'
+               keyPassword 'yangyun520'
+          }
+     }
+     compileSdkVersion 29
+     buildToolsVersion '29.0.2'
+
+     defaultConfig {
+          applicationId "com.example.mybaidumap"
+          minSdkVersion 19
+          targetSdkVersion 29
+          versionCode 1
+          versionName "1.0"
+          multiDexEnabled true
+          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+     }
+
+     buildTypes {
+          release {
+               minifyEnabled false
+               proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+          }
+     }
+
+     lintOptions {
+          checkReleaseBuilds false
+          // Or, if you prefer, you can continue to check for errors in release builds,
+          // but continue the build even when errors are found:
+          abortOnError false
+     }
+     sourceSets {
+          main {
+               jniLibs.srcDirs = ['libs']
+          }
+     }
+     repositories {
+          mavenCentral()
+          maven{
+               url 'https://maven.google.com'
+          }
+          maven {
+               url "https://jitpack.io"
+          }
+     }
+     configurations.all {
+          resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+               def requested = details.requested
+               if (requested.group == 'com.android.support') {
+                    if (!requested.name.startsWith("multidex")) {
+                         details.useVersion '26.+'
+                    }
+               }
+          }
+     }
+     compileOptions {
+          sourceCompatibility JavaVersion.VERSION_1_8
+          targetCompatibility JavaVersion.VERSION_1_8
+     }
+     packagingOptions {
+          exclude 'assets/cfg/idrres/DVIndoor.cfg'
+     }
+}
+
+dependencies {
+     implementation fileTree(dir: "libs", include: ["*.jar"])
+     implementation 'androidx.appcompat:appcompat:1.2.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+     implementation 'com.android.support:multidex:1.0.3'
+
+     //LikeButton
+     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+     //智能刷新控件
+     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-12'
+     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.1'
+
+     //Gson
+     implementation 'com.google.code.gson:gson:2.8.6'
+     //悬浮按钮
+     implementation 'com.getbase:floatingactionbutton:1.9.0'
+     implementation project(path: ':easeui')
+
+     //RecyclerView
+     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha06'
+     //viewpager
+     implementation 'androidx.viewpager:viewpager:1.0.0'
+     //BottomBar
+     implementation 'com.roughike:bottom-bar:2.0.2'
+     //视频播放
+     implementation 'cn.jzvd:jiaozivideoplayer:7.5.0'
+     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+      
+
+
+     implementation 'com.squareup.okio:okio:1.12.0'
+     implementation 'com.github.lovetuzitong:MultiImageSelector:1.2'
+     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+     implementation 'com.etsy.android.grid:library:1.0.5'
+     implementation 'com.ashokvarma.android:bottom-navigation-bar:1.2.0'
+     implementation 'com.google.android.material:material:1.2.1'
+     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+     implementation 'com.github.bumptech.glide:glide:4.9.0'
+     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+     implementation files('libs\\BaiduLBS_Android.jar')
+     implementation files('libs\\IndoorscapeAlbumPlugin.jar')
+
+     testImplementation 'junit:junit:4.12'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MergeRootFrame">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 顶部添加文字 -->
+        <RelativeLayout
+            android:id="@+id/Layout_top"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="发布笔记"
+                android:textColor="#000000"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- 显示图片 -->
+        <RelativeLayout
+            android:id="@+id/Content_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/Layout_top"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+                <!-- 设置运行多行 设置圆角图形 黑色字体-->
+                <EditText
+                    android:id="@+id/editText0"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="12dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="请输入主题"
+                    android:maxLength="500"
+                    android:singleLine="false"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="120dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="12dp"
+                    android:hint="记录美好瞬间..."
+                    android:maxLength="500"
+                    android:singleLine="false"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <!-- 网格显示图片 行列间距5dp 每列宽度90dp -->
+                <GridView
+                    android:id="@+id/gridView1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/round_black_box"
+                    android:columnWidth="90dp"
+                    android:gravity="center"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="4"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="5dp"></GridView>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="(友情提示:长按图片可以删除已添加图片)" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="上传时间：" />
+
+                <EditText
+                    android:id="@+id/ed_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@null"
+                    android:hint="请输入上传地点" />
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/round_black"
+                    android:text="发布"
+                    android:layout_marginTop="25dp"
+                    android:layout_gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

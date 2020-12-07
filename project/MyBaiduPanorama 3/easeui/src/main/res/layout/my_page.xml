@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_down">
+
+                <TextView
+                    android:id="@+id/my_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="10dp"
+                    android:ellipsize="end"
+                    android:text="用户名"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/my_user_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginRight="10dp"
+                    android:ellipsize="end"
+                    android:text="签名" />
+
+                <TextView
+                    android:id="@+id/tv_popu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginRight="10dp"
+                    android:ellipsize="end"
+                    android:text="97"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_fan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/tv_popu"
+                    android:ellipsize="end"
+                    android:text="6"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_foll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/tv_fan"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_popularity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="170dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="人气" />
+
+                <TextView
+                    android:id="@+id/tv_fans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="170dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/tv_popularity"
+                    android:ellipsize="end"
+                    android:text="粉丝" />
+
+                <TextView
+                    android:id="@+id/tv_follow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="170dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/tv_fans"
+                    android:ellipsize="end"
+                    android:text="关注" />
+
+                <ImageView
+                    android:id="@+id/my_user_photo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="40dp"
+                    android:src="@mipmap/photo" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_examine"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="110dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/examine" />
+
+                <ImageView
+                    android:id="@+id/iv_collect"
+                    android:layout_width="35dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/iv_examine"
+                    android:src="@mipmap/examine1"
+                    android:layout_centerVertical="true"/>
+
+                <ImageView
+                    android:id="@+id/iv_set_up"
+                    android:layout_width="35dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/iv_collect"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/setup" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_examine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:text="我的计划"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_collect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/tv_examine"
+                    android:text="我的收藏"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_set_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/tv_collect"
+                    android:text="设置中心"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+            <!--使用fragment添加标签，需要写新的页面（grid框架）-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/activity_center" />
+
+                <FrameLayout
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

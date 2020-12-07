@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.mybaidupanorma">
+
+    <!-- 访问相机权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <activity android:name="com.example.mybaidupanorma.activity.ModifyUserInfoActivity"/>
+        <!--        <activity android:name=".MainPageActivity"/>-->
+        <activity android:name="com.example.mybaidupanorma.activity.SetUpActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.AccountSettingsActivity"></activity>
+        <activity android:name="com.example.mybaidupanorma.activity.BookMarkActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.ExamineActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.TemplateActivity"  android:configChanges="orientation|screenSize"/>
+        <activity android:name="com.example.mybaidupanorma.activity.ExamineDetailActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.RegisterActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.DetailActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.NotesActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.UploadVideoActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.VideoDetailActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.SpotActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.PanoramaActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.ShowVideoActivity"/>
+        <activity android:name="com.example.mybaidupanorma.activity.LoginActivity"/>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 设置环信应用的AppKey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1100201118048371#im123" />
+        <!-- 声明SDK所需的service SDK核心功能 -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"
+            tools:ignore="MissingClass">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v5.0.0" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="yIR9abogkG9RYBDI3GYp6LnI0pY9F6VX" />
+
+        <!-- 适配Android 7.0, 需要将下方的com.hyphenate.chatuidemo替换为你的app包名 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.mybaidumap.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>
