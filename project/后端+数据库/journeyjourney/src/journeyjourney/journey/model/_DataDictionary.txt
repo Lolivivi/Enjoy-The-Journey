@@ -1,0 +1,167 @@
+Table: tbl_collection
+---------+-------------+------+-----+---------+---------
+ Field   | Type        | Null | Key | Default | Remarks 
+---------+-------------+------+-----+---------+---------
+ id      | INT(10)     | NO   | PRI |         |         
+ note_id | INT(10)     | YES  |     |         |         
+ tel     | VARCHAR(20) | YES  |     |         |         
+ name    | VARCHAR(20) | YES  |     |         |         
+---------+-------------+------+-----+---------+---------
+
+Table: tbl_comments
+------------------+--------------+------+-----+---------+---------
+ Field            | Type         | Null | Key | Default | Remarks 
+------------------+--------------+------+-----+---------+---------
+ id               | INT(10)      | NO   | PRI |         |         
+ note_id          | INT(10)      | YES  |     |         |         
+ comments_content | VARCHAR(200) | YES  |     |         |         
+ tel              | VARCHAR(20)  | YES  |     |         |         
+ comments_time    | VARCHAR(50)  | YES  |     |         |         
+------------------+--------------+------+-----+---------+---------
+
+Table: tbl_follow
+------------+-------------+------+-----+---------+---------
+ Field      | Type        | Null | Key | Default | Remarks 
+------------+-------------+------+-----+---------+---------
+ id         | INT(10)     | NO   | PRI |         |         
+ fans_tel   | VARCHAR(20) | YES  |     |         |         
+ follow_tel | VARCHAR(20) | YES  |     |         |         
+------------+-------------+------+-----+---------+---------
+
+Table: tbl_food
+---------+--------------+------+-----+---------+---------
+ Field   | Type         | Null | Key | Default | Remarks 
+---------+--------------+------+-----+---------+---------
+ id      | INT(10)      | NO   | PRI |         |         
+ note_id | INT(10)      | YES  |     |         |         
+ content | VARCHAR(100) | YES  |     |         |         
+---------+--------------+------+-----+---------+---------
+
+Table: tbl_imgs
+---------+-------------+------+-----+---------+---------
+ Field   | Type        | Null | Key | Default | Remarks 
+---------+-------------+------+-----+---------+---------
+ id      | INT(10)     | NO   | PRI |         |         
+ node_id | INT(10)     | YES  |     |         |         
+ img_src | VARCHAR(50) | YES  |     |         |         
+---------+-------------+------+-----+---------+---------
+
+Table: tbl_journeyonline
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ id              | INT(10)      | NO   | PRI |         |         
+ title           | VARCHAR(100) | NO   |     |         |         
+ image           | VARCHAR(40)  | NO   |     |         |         
+ introduce       | VARCHAR(100) | NO   |     |         |         
+ image_one       | VARCHAR(40)  | NO   |     |         |         
+ image_two       | VARCHAR(40)  | NO   |     |         |         
+ image_three     | VARCHAR(40)  | NO   |     |         |         
+ introduce_one   | VARCHAR(200) | NO   |     |         |         
+ introduce_two   | VARCHAR(200) | NO   |     |         |         
+ introduce_three | VARCHAR(200) | NO   |     |         |         
+ address_one     | VARCHAR(40)  | NO   |     |         |         
+ address_two     | VARCHAR(40)  | NO   |     |         |         
+ address_three   | VARCHAR(40)  | NO   |     |         |         
+-----------------+--------------+------+-----+---------+---------
+
+Table: tbl_love
+---------+-------------+------+-----+---------+---------
+ Field   | Type        | Null | Key | Default | Remarks 
+---------+-------------+------+-----+---------+---------
+ note_id | INT(10)     | NO   | PRI |         |         
+ tel     | VARCHAR(20) | NO   | PRI |         |         
+---------+-------------+------+-----+---------+---------
+
+Table: tbl_modle
+-----------+-------------+------+-----+---------+---------
+ Field     | Type        | Null | Key | Default | Remarks 
+-----------+-------------+------+-----+---------+---------
+ id        | INT(10)     | NO   | PRI |         |         
+ type_name | VARCHAR(10) | YES  |     |         |         
+-----------+-------------+------+-----+---------+---------
+
+Table: tbl_note
+-----------------+---------------+------+-----+---------+---------
+ Field           | Type          | Null | Key | Default | Remarks 
+-----------------+---------------+------+-----+---------+---------
+ note_id         | INT(10)       | NO   | PRI |         |         
+ tel             | VARCHAR(20)   | YES  |     |         |         
+ cover_src       | VARCHAR(50)   | YES  |     |         |         
+ like_num        | INT(10)       | YES  |     |         |         
+ collection_num  | INT(10)       | YES  |     |         |         
+ comments_num    | INT(10)       | YES  |     |         |         
+ titlle          | VARCHAR(25)   | YES  |     |         |         
+ content         | VARCHAR(3000) | YES  |     |         |         
+ upload_time     | VARCHAR(50)   | YES  |     |         |         
+ upload_position | VARCHAR(50)   | YES  |     |         |         
+ res_type        | VARCHAR(10)   | YES  |     |         |         
+ modle_id        | VARCHAR(20)   | YES  |     |         |         
+ tag_id          | INT(10)       | YES  |     |         |         
+-----------------+---------------+------+-----+---------+---------
+
+Table: tbl_online_travel
+----------+--------------+------+-----+---------+---------
+ Field    | Type         | Null | Key | Default | Remarks 
+----------+--------------+------+-----+---------+---------
+ id       | INT(10)      | NO   | PRI |         |         
+ title    | VARCHAR(255) | YES  |     |         |         
+ intro    | VARCHAR(255) | YES  |     |         |         
+ img1     | VARCHAR(255) | YES  |     |         |         
+ img2     | VARCHAR(255) | YES  |     |         |         
+ img3     | VARCHAR(255) | YES  |     |         |         
+ latLong1 | VARCHAR(255) | YES  |     |         |         
+ latLong2 | VARCHAR(255) | YES  |     |         |         
+ latLong3 | VARCHAR(255) | YES  |     |         |         
+----------+--------------+------+-----+---------+---------
+
+Table: tbl_plan
+--------------+---------------+------+-----+---------+---------
+ Field        | Type          | Null | Key | Default | Remarks 
+--------------+---------------+------+-----+---------+---------
+ id           | INT(10)       | NO   | PRI |         |         
+ tel          | VARCHAR(20)   | YES  |     |         |         
+ plan_content | VARCHAR(3000) | YES  |     |         |         
+ title        | VARCHAR(20)   | YES  |     |         |         
+--------------+---------------+------+-----+---------+---------
+
+Table: tbl_route
+---------+--------------+------+-----+---------+---------
+ Field   | Type         | Null | Key | Default | Remarks 
+---------+--------------+------+-----+---------+---------
+ id      | INT(10)      | NO   | PRI |         |         
+ note_id | INT(10)      | YES  |     |         |         
+ content | VARCHAR(100) | YES  |     |         |         
+---------+--------------+------+-----+---------+---------
+
+Table: tbl_son_comment
+------------------+--------------+------+-----+---------+---------
+ Field            | Type         | Null | Key | Default | Remarks 
+------------------+--------------+------+-----+---------+---------
+ id               | INT(10)      | NO   | PRI |         |         
+ parentId         | INT(10)      | YES  |     |         |         
+ comments_content | VARCHAR(255) | YES  |     |         |         
+ tel              | VARCHAR(255) | YES  |     |         |         
+ comments_time    | DATETIME(19) | YES  |     |         |         
+------------------+--------------+------+-----+---------+---------
+
+Table: tbl_tag
+----------+-------------+------+-----+---------+---------
+ Field    | Type        | Null | Key | Default | Remarks 
+----------+-------------+------+-----+---------+---------
+ tag_id   | INT(10)     | NO   | PRI |         |         
+ tag_name | VARCHAR(20) | YES  |     |         |         
+----------+-------------+------+-----+---------+---------
+
+Table: tbl_user
+---------+--------------+------+-----+---------+---------
+ Field   | Type         | Null | Key | Default | Remarks 
+---------+--------------+------+-----+---------+---------
+ tel     | VARCHAR(20)  | NO   | PRI |         |         
+ name    | VARCHAR(20)  | YES  |     |         |         
+ pwd     | VARCHAR(20)  | YES  |     |         |         
+ headSrc | VARCHAR(50)  | YES  |     |         |         
+ sex     | CHAR(1)      | YES  |     |         |         
+ intro   | VARCHAR(200) | YES  |     |         |         
+---------+--------------+------+-----+---------+---------
+
